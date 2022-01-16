@@ -6,54 +6,90 @@ const ArrayS = document.getElementById('arraySize');
 const ArrayBTN = document.getElementById('makeArray');
 const DisplayBTN = document.getElementById('displayArray');
 const ArrayContainer = document.getElementById('mainTxt');
-const csv = document.getElementById('csv');
+const userArray = document.getElementById('array');
+const userNeeds = document.getElementById('searchFor');
+
 
 let ArraySize = 0;
 let algorithmName = '';
 let array=[];
+let userArrayString;
+let chw;
+let newSpan;
+let LS = function(z, arr){
+    for (let i = 0; i < arr.length; i++) {
+      setTimeout(function(){
 
+              if(arr[i]==z){
+        console.log(`element found at ${i+1}`);
+        document.getElementById(`span-${i}`).style.backgroundColor = 'green';
+      }else{
+        console.log(`Element not found`);
+        document.getElementById(`span-${i}`).style.backgroundColor = 'red';
+      }
+
+      }, 500*i);
+
+      
+    }
+};
 
 //game logic
 
 //1. Array
 
-ArrayBTN.addEventListener('click', function () {
-  ArraySize = ArrayS.value;
-  console.log(ArraySize);
+// ArrayBTN.addEventListener('click', function () {
 
-  // 1. making Array of Size : ArraySize
 
-   array= [ArraySize];
+//   // 1. making Array of Size : ArraySize
+
+//    array= [ArraySize];
 
  
 
-  // 2. entering Elements of array
-        for (let i = 0; i < ArraySize; i++) {
-          array[i]=Number(prompt(`Enter the ${i} element...`));
-          console.log(`at postion ${i} : ${array[i]}`);
-        }
+  // // 2. entering Elements of array
+  //       for (let i = 0; i < ArraySize; i++) {
+  //         array[i]=Number(prompt(`Enter the ${i} element...`));
+  //         console.log(`at postion ${i} : ${array[i]}`);
+  //       }
+
+
+// });
 
   // 3. displaying the array 
-    DisplayBTN.addEventListener('click', function () {
+  DisplayBTN.addEventListener('click', function () {
     
-         //1.1 making spans of arraySize
-     const arrayOfSpans = [];
-    for (let i = 0; i < ArraySize; i++) {
-      let newSpan = document.createElement('span');
-      newSpan.id= `span-${i}`;
-      newSpan.className= `arraySpan`
-      // ArrayContainer.appendChild(newSpan);
-      arrayOfSpans.push(newSpan);
-    }
-     ArrayContainer.replaceChildren(...arrayOfSpans);
+    userArrayString = String(userArray.value);
 
-      for (let i = 0; i < ArraySize; i++) {
-        document.getElementById(`span-${i}`).textContent = array[i];
-      }
+   //  console.log(userArrayString);
+   
+    // chw = comma hatane wala 
+    // const chw = userArrayString.split(',');
+    //comma hatane ke sath string ko number me bdlne waala
+
+    chw = userArrayString.split(',').map(Number);
+    console.log(chw); 
 
 
-    });
-  // console.log(array);
+    ArraySize =chw.length;
+    console.log(ArraySize);
+
+
+
+    //1.1 making spans of arraySize
+const arrayOfSpans = [];
+for (let i = 0; i < ArraySize; i++) {
+ newSpan = document.createElement('span');
+ newSpan.id= `span-${i}`;
+ newSpan.className= `arraySpan`
+ ArrayContainer.appendChild(newSpan);
+//  chw.push(newSpan);
+}
+// ArrayContainer.replaceChildren(...chw);
+
+ for (let i = 0; i < ArraySize; i++) {
+   document.getElementById(`span-${i}`).textContent = chw[i];
+ }
 });
 
 
@@ -64,13 +100,14 @@ StartBTN.addEventListener('click', function(){
   algorithmName = Algorithm.value;
   
   console.log(algorithmName);
-  console.log(array);
-  const csvString = String(csv.value)
-  console.log(csvString);
+  console.log(chw);
+  console.log(userNeeds.value);
+  let x = userNeeds.value;
+  console.log(ArraySize);
 
-  // chw = comment hatane wala 
-  const chw = csvString.split(',');
-  console.log(Number(chw[0]));
+  if (algorithmName === 'Linear Search') {
+      LS(x,chw);
+  }
 });
 
   
