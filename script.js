@@ -6,6 +6,7 @@ const DisplayBTN = document.getElementById('displayArray');
 const ArrayContainer = document.getElementById('mainTxt');
 const userArray = document.getElementById('array');
 const userNeeds = document.getElementById('searchFor');
+const resultSpan = document.getElementById('resultTxt');
 
 
 let ArraySize = 0;
@@ -13,6 +14,13 @@ let algorithmName = '';
 let userArrayString;
 let array;
 let newSpan;
+let counter=1;
+
+let notFound = function () {
+ console.log(`element not found`);
+ resultSpan.textContent='element not present in the array!';
+}  
+
 
 let updatedSpan = function() {
   for (let i = 0; i < ArraySize; i++) {
@@ -28,70 +36,84 @@ let sortArr = function(arr){
   //  functions for search
       // 1.Linear Search
 let LS = function(z, arr){
+
+  resultSpan.textContent = `Searching...`;
     for (let i = 0; i < arr.length; i++) {
       setTimeout(function(){
 
               if(arr[i]==z){
         console.log(`element found at ${i+1}`);
+        resultSpan.textContent = `Element found at ${i} position of array`;
         document.getElementById(`span-${i}`).style.backgroundColor = 'green';
+        return 0;
       }else{
         console.log(`Element not found`);
         document.getElementById(`span-${i}`).style.backgroundColor = 'red';
-      }
+      } 
 
+
+      }, 500*i); 
+    }
+    for (let i = 0; i < arr.length; i++) {
+      setTimeout(() => {
+        if (i==arr.length-1 && z != arr[i]) {
+          notFound(); 
+        }
       }, 500*i);
-
       
     }
 };
 
 // 2.Binary Search
+let BS = function(arr, z){
+  
+  // setTimeout(() => {
+  
+  let left = 0;
+  let right = arr.length - 1;
+  
+  while (left<=right) {
+      let mid = Math.floor((right+left)/2);
+      
+      if (z==arr[mid]) {
+        console.log(`found at ${mid} position of array`);
+        resultSpan.textContent = `Element found at ${mid} position of array`;
+        document.getElementById(`span-${mid}`).style.backgroundColor= 'green';
+        return 0;
+      }else if (z < arr[mid]) {
+        right = mid-1;
+        counter++;
+        if (z!=arr[mid]) {
+          document.getElementById(`span-${mid}`).style.backgroundColor= 'red';
+        }
+      }else if (z> arr[mid]) {
+        left = mid+1;
+        counter++;
+        if (z!=arr[mid]) {
+          document.getElementById(`span-${mid}`).style.backgroundColor= 'red';
+        }
+      }
 
-let r = ArraySize;
-let l = 0;
-let BS = function (arr,l,r,z) {
-  let mid = l + Math.floor((r-l)/2);
-  if (arr[mid]== z) {
-    console.log(`found at mid`);
+      
+    }
+  // }, 500*counter);
+    return notFound();
   }
-  if(arr[mid]>z){
-    BS(arr,l,mid-1,z);
-    console.log(`found in left`);
-  }
-  if(arr[mid]<z){
-    BS(arr,mid+1,r,z);
-    console.log(`found in right`);
-  }
-}
 
   // 3. displaying the array 
   DisplayBTN.addEventListener('click', function () {
-    
+
     userArrayString = String(userArray.value);
-
-   //  console.log(userArrayString);
-   
-    // array = comma hatane wala 
-    // const array = userArrayString.split(',');
-    //comma hatane ke sath string ko number me bdlne waala
-
     array = userArrayString.split(',').map(Number);
-    console.log(array); 
-
-
     ArraySize =array.length;
-    console.log(ArraySize);
 
-
-
-//  making spans of arraySize
+     //  making spans of arraySize
 
         const arrayOfSpans = [];
         for (let i = 0; i < ArraySize; i++) {
         newSpan = document.createElement('span');
         newSpan.id= `span-${i}`;
-        newSpan.className= `arraySpan`
-        //  ArrayContainer.appendChild(newSpan);
+        newSpan.className= `arraySpan`;
         arrayOfSpans.push(newSpan);
         }
         ArrayContainer.replaceChildren(...arrayOfSpans);
@@ -107,13 +129,16 @@ let BS = function (arr,l,r,z) {
 
 StartBTN.addEventListener('click', function(){
   algorithmName = Algorithm.value;
-  
-  console.log(algorithmName);
-  console.log(array);
-  console.log(userNeeds.value);
   let x = userNeeds.value;
-  console.log(ArraySize);
-
+  // console.log(algorithmName);
+  // console.log(array);
+  // console.log(userNeeds.value);
+  // console.log(ArraySize);
+   
+    if (!x) {
+      console.log(`Enter a element first`);
+      resultSpan.textContent = 'Enter a element first';
+    }else{
   if (algorithmName === 'Linear Search') {
       LS(x,array);
   } else if(algorithmName === 'Binary Search'){
@@ -124,23 +149,8 @@ StartBTN.addEventListener('click', function(){
     //storing new array to span || updating span values
         updatedSpan();
 
-    //2. search algorithm.
-        // 2.Binary Search
-
-let r = ArraySize-1;
-let l = 0;
-
-  let mid = l + Math.floor((r-l)/2);
-  if (array[mid]== x) {
-    console.log(`found at mid`);
+    // 2.Binary Search  
+        BS(array, x);
   }
-}
-  
+  }
 });
-
-  
-
-// function showOptions(s) {
-//     console.log(s[s.selectedIndex].value); // get value
-//     console.log(s[s.selectedIndex].id); // get id
-//   }

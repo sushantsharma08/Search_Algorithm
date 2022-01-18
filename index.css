@@ -5,6 +5,7 @@
 body{
     background: linear-gradient(20deg, rgb(94, 94, 236), rgb(240, 138, 155), rgb(192, 105, 192));
     height: 100vh;
+    /* background: non; */
 }
 #nav{
     display: flex;
@@ -48,4 +49,22 @@ body{
     height: 20px;
     width: max-content;
     text-align: center;
+}
+#result{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15%;
+    border: 7px solid rgba(0, 0, 0, 0.7);
+}
+#resultTxt{
+    font-size: x-large;
+}
+#Txt{
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: x-large;
+    text-decoration: underline;
 }
