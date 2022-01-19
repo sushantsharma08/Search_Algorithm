@@ -29,7 +29,9 @@ let updatedSpan = function() {
 }
 
 let sortArr = function(arr){
-  arr.sort();
+  arr.sort(function(a,b) {
+    return a-b;
+  });
   console.log(arr);
 }
 
@@ -38,30 +40,27 @@ let sortArr = function(arr){
 let LS = function(z, arr){
 
   resultSpan.textContent = `Searching...`;
-    for (let i = 0; i < arr.length; i++) {
-      setTimeout(function(){
+  for (let i = 0; i < arr.length; i++) {
+    setTimeout(function(){
 
-              if(arr[i]==z){
+        if(arr[i]==z){
         console.log(`element found at ${i+1}`);
         resultSpan.textContent = `Element found at ${i} position of array`;
         document.getElementById(`span-${i}`).style.backgroundColor = 'green';
-        return 0;
+        // return 0;
       }else{
         console.log(`Element not found`);
-        document.getElementById(`span-${i}`).style.backgroundColor = 'red';
-      } 
-
-
+        document.getElementById(`span-${i}`).style.backgroundColor = 'red';}
       }, 500*i); 
     }
-    for (let i = 0; i < arr.length; i++) {
-      setTimeout(() => {
-        if (i==arr.length-1 && z != arr[i]) {
-          notFound(); 
-        }
-      }, 500*i);
+    // for (let i = 0; i < arr.length; i++) {
+    //   setTimeout(() => {
+    //     if (i==arr.length-1 && z != arr[i]) {
+    //       notFound(); 
+    //     }
+    //   }, 500*i);
       
-    }
+    // }
 };
 
 // 2.Binary Search
@@ -134,6 +133,7 @@ StartBTN.addEventListener('click', function(){
   // console.log(array);
   // console.log(userNeeds.value);
   // console.log(ArraySize);
+
    
     if (!x) {
       console.log(`Enter a element first`);

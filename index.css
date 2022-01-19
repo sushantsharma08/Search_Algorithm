@@ -13,6 +13,7 @@ body{
     height: 15%;
     align-items: center;
     border: 7px solid rgba(0, 0, 0, 0.7);
+    background-color: rgba(2, 2, 2, .2);
 }
 .button{
     height: 30px;
@@ -56,6 +57,7 @@ body{
     align-items: center;
     height: 15%;
     border: 7px solid rgba(0, 0, 0, 0.7);
+    background-color: rgba(2, 2, 2, .2);
 }
 #resultTxt{
     font-size: x-large;
