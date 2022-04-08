@@ -14,119 +14,122 @@ let algorithmName = '';
 let userArrayString;
 let array;
 let newSpan;
-let counter=1;
+
 
 let notFound = function () {
- console.log(`element not found`);
- resultSpan.textContent='element not present in the array!';
-}  
+  console.log(`element not found`);
+  resultSpan.textContent = 'element not present in the array!';
+}
 
 
-let updatedSpan = function() {
+let updatedSpan = function () {
   for (let i = 0; i < ArraySize; i++) {
     document.getElementById(`span-${i}`).textContent = array[i];
   }
 }
 
-let sortArr = function(arr){
-  arr.sort(function(a,b) {
-    return a-b;
+let sortArr = function (arr) {
+  arr.sort(function (a, b) {
+    return a - b;
   });
   console.log(arr);
 }
 
-  //  functions for search
-      // 1.Linear Search
-let LS = function(z, arr){
+//  functions for search
+
+// 1.Linear Search
+let LS = function (z, arr) {
 
   resultSpan.textContent = `Searching...`;
   for (let i = 0; i < arr.length; i++) {
-    setTimeout(function(){
+    setTimeout(function () {
 
-        if(arr[i]==z){
-        console.log(`element found at ${i+1}`);
+      if (arr[i] == z) {
+        console.log(`element found at ${i + 1}`);
         resultSpan.textContent = `Element found at ${i} position of array`;
         document.getElementById(`span-${i}`).style.backgroundColor = 'green';
         // return 0;
-      }else{
+      } else {
         console.log(`Element not found`);
-        document.getElementById(`span-${i}`).style.backgroundColor = 'red';}
-      }, 500*i); 
-    }
-    // for (let i = 0; i < arr.length; i++) {
-    //   setTimeout(() => {
-    //     if (i==arr.length-1 && z != arr[i]) {
-    //       notFound(); 
-    //     }
-    //   }, 500*i);
-      
-    // }
+        document.getElementById(`span-${i}`).style.backgroundColor = 'red';
+      }
+    }, 500 * i);
+  }
+  // for (let i = 0; i < arr.length; i++) {
+  //   setTimeout(() => {
+  //     if (i==arr.length-1 && z != arr[i]) {
+  //       notFound(); 
+  //     }
+  //   }, 500*i);
+
+  // }
 };
 
 // 2.Binary Search
-let BS = function(arr, z){
-  
-  // setTimeout(() => {
-  
+let BS = function (arr, z) {
+
   let left = 0;
   let right = arr.length - 1;
-  
-  while (left<=right) {
-      let mid = Math.floor((right+left)/2);
-      
-      if (z==arr[mid]) {
-        console.log(`found at ${mid} position of array`);
-        resultSpan.textContent = `Element found at ${mid} position of array`;
-        document.getElementById(`span-${mid}`).style.backgroundColor= 'green';
-        return 0;
-      }else if (z < arr[mid]) {
-        right = mid-1;
-        counter++;
-        if (z!=arr[mid]) {
-          document.getElementById(`span-${mid}`).style.backgroundColor= 'red';
-        }
-      }else if (z> arr[mid]) {
-        left = mid+1;
-        counter++;
-        if (z!=arr[mid]) {
-          document.getElementById(`span-${mid}`).style.backgroundColor= 'red';
-        }
-      }
+  let bscounter = 0;
+  while (left <= right && bscounter<arr.length) {
 
+    setTimeout(function(){
       
+    let mid = Math.floor((right + left) / 2);
+
+    if (z == arr[mid]) {
+      console.log(`found at ${mid} position of array`);
+      resultSpan.textContent = `Element found at ${mid} position of array`;
+      document.getElementById(`span-${mid}`).style.backgroundColor = 'green';
+      return 0;
+    } else if (z < arr[mid]) {
+      right = mid - 1;
+
+      if (z != arr[mid]) {
+        document.getElementById(`span-${mid}`).style.backgroundColor = 'red';
+      }
+    } else if (z > arr[mid]) {
+      left = mid + 1;
+
+      if (z != arr[mid]) {
+        document.getElementById(`span-${mid}`).style.backgroundColor = 'red';
+      }
     }
-  // }, 500*counter);
-    return notFound();
+  }, 1000*bscounter);
+  bscounter++;
   }
 
-  // 3. displaying the array 
-  DisplayBTN.addEventListener('click', function () {
+  return notFound();
+}
 
-    userArrayString = String(userArray.value);
-    array = userArrayString.split(',').map(Number);
-    ArraySize =array.length;
+// 3. displaying the array 
+DisplayBTN.addEventListener('click', function () {
 
-     //  making spans of arraySize
+  userArrayString = String(userArray.value);
+  array = userArrayString.split(',').map(Number);
+  ArraySize = array.length;
 
-        const arrayOfSpans = [];
-        for (let i = 0; i < ArraySize; i++) {
-        newSpan = document.createElement('span');
-        newSpan.id= `span-${i}`;
-        newSpan.className= `arraySpan`;
-        arrayOfSpans.push(newSpan);
-        }
-        ArrayContainer.replaceChildren(...arrayOfSpans);
+  //  making spans of arraySize
 
-// storing array elements into the span
+  const arrayOfSpans = [];
+  for (let i = 0; i < ArraySize; i++) {
+    newSpan = document.createElement('span');
+    newSpan.id = `span-${i}`;
+    newSpan.className = `arraySpan`;
+    arrayOfSpans.push(newSpan);
+  }
+  ArrayContainer.replaceChildren(...arrayOfSpans);
 
-    updatedSpan();
+  // storing array elements into the span
+
+  updatedSpan();
 });
 
 
 
 //2. Start button functionality
 
-StartBTN.addEventListener('click', function(){
+StartBTN.addEventListener('click', function () {
   algorithmName = Algorithm.value;
   let x = userNeeds.value;
   // console.log(algorithmName);
@@ -134,23 +137,23 @@ StartBTN.addEventListener('click', function(){
   // console.log(userNeeds.value);
   // console.log(ArraySize);
 
-   
-    if (!x) {
-      console.log(`Enter a element first`);
-      resultSpan.textContent = 'Enter a element first';
-    }else{
-  if (algorithmName === 'Linear Search') {
-      LS(x,array);
-  } else if(algorithmName === 'Binary Search'){
 
-    //1. call the sortArr function
-        sortArr(array);
+  if (!x) {
+    console.log(`Enter a element first`);
+    resultSpan.textContent = 'Enter a element first';
+  } else {
+    if (algorithmName === 'Linear Search') {
+      LS(x, array);
+    } else if (algorithmName === 'Binary Search') {
 
-    //storing new array to span || updating span values
-        updatedSpan();
+      //1. call the sortArr function
+      sortArr(array);
 
-    // 2.Binary Search  
-        BS(array, x);
-  }
+      //storing new array to span || updating span values
+      updatedSpan();
+
+      // 2.Binary Search  
+      BS(array, x);
+    }
   }
 });
