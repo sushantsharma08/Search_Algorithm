@@ -4,8 +4,7 @@
 }
 body{
     background: linear-gradient(20deg, rgb(94, 94, 236), rgb(240, 138, 155), rgb(192, 105, 192));
-    height: 100vh;
-    /* background: non; */
+    height: 120vh;
 }
 #nav{
     display: flex;
@@ -30,12 +29,10 @@ body{
     text-align: center;
 }
 #arraySec{
-    /* height: 15%; */
     display: flex;
     justify-content: space-around;
     align-items: center;
-    /* border: 7px solid rgba(44, 44, 61, 0.685);
-    border-radius: 12%; */
+    
 }
 #mainTxt{
     display: flex;
