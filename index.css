@@ -5,11 +5,12 @@
 body{
     background: linear-gradient(20deg, rgb(94, 94, 236), rgb(240, 138, 155), rgb(192, 105, 192));
     height: 120vh;
+    /* background: non; */
 }
 #nav{
     display: flex;
     justify-content: space-around;
-    height: 15%;
+    height: 13%;
     align-items: center;
     border: 7px solid rgba(0, 0, 0, 0.7);
     background-color: rgba(2, 2, 2, .2);
@@ -17,28 +18,30 @@ body{
 .button{
     height: 30px;
     width: max-content;
-    border: 3px solid rgba(0, 0, 0, 0.6);
+    border: 3px solid rgba(0, 0, 0, 0.618);
     background: linear-gradient(60deg, rgba(48, 45, 45, 0.507), rgba(50, 50, 187, 0.562));
     color: white;
 }
 #main{
-    height: 15%;
+    height: 13%;
     border: 7px solid rgba(44, 44, 61, 0.685);
 }
 #Txt{
     text-align: center;
 }
 #arraySec{
+    /* height: 15%; */
     display: flex;
     justify-content: space-around;
     align-items: center;
-    
+    /* border: 7px solid rgba(44, 44, 61, 0.685);
+    border-radius: 12%; */
 }
 #mainTxt{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 15%;
+    height: 13%;
     border: 7px solid rgba(44, 44, 61, 0.685);
 }
 .arraySpan{
@@ -47,12 +50,13 @@ body{
     height: 20px;
     width: max-content;
     text-align: center;
+    height: max-content;
 }
 #result{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 15%;
+    height: 13%;
     border: 7px solid rgba(0, 0, 0, 0.7);
     background-color: rgba(2, 2, 2, .2);
 }
@@ -67,3 +71,9 @@ body{
     font-size: x-large;
     text-decoration: underline;
 }
+.sec{
+    height: 40%;
+}
+/* .tag{
+    margin: 3px;
+} */
