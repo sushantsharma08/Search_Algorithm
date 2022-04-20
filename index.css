@@ -18,7 +18,8 @@ body{
 .button{
     height: 30px;
     width: max-content;
-    border: 2px solid rgba(0, 0, 0, 0.54);
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 2px;
     background: linear-gradient(60deg, rgba(48, 45, 45, 0.507), rgba(50, 50, 187, 0.562));
     color: white;
 }
