@@ -25,6 +25,7 @@ let notFound = function () {
 let updatedSpan = function () {
   for (let i = 0; i < ArraySize; i++) {
     document.getElementById(`span-${i}`).textContent = array[i];
+    document.getElementById(`span-${i}`).style.backgroundColor = '#ffffff00';
   }
 }
 
@@ -39,30 +40,31 @@ let sortArr = function (arr) {
 
 // 1.Linear Search
 let LS = function (z, arr) {
-
-  resultSpan.textContent = `Searching...`;
-  for (let i = 0; i < arr.length; i++) {
-    setTimeout(function () {
-
-      if (arr[i] == z) {
-        console.log(`element found at ${i + 1}`);
-        resultSpan.textContent = `Element found at ${i} position of array`;
-        document.getElementById(`span-${i}`).style.backgroundColor = 'green';
-        // return 0;
-      } else {
-        console.log(`Element not found`);
-        document.getElementById(`span-${i}`).style.backgroundColor = 'red';
+  for(let i=0; i<arr.length; i++){
+    if(arr[i]==z){
+      resultSpan.textContent = `Searching...`;
+      for (let i = 0; i < arr.length; i++) {
+        setTimeout(function () {
+    
+          if (arr[i] == z) {
+            console.log(`element found at ${i + 1}`);
+            resultSpan.textContent = `Element found at ${i} position of array`;
+            document.getElementById(`span-${i}`).style.backgroundColor = 'green';
+            // return 0;
+          } else {
+            console.log(`Element not found`);
+            document.getElementById(`span-${i}`).style.backgroundColor = 'red';
+          }
+        }, 500 * i);
       }
-    }, 500 * i);
+    }else{
+      setTimeout(function () {
+      document.getElementById(`span-${i}`).style.backgroundColor = 'red';
+      }, 500 * i);
+      notFound();
+    }
   }
-  // for (let i = 0; i < arr.length; i++) {
-  //   setTimeout(() => {
-  //     if (i==arr.length-1 && z != arr[i]) {
-  //       notFound(); 
-  //     }
-  //   }, 500*i);
 
-  // }
 };
 
 // 2.Binary Search
@@ -136,7 +138,7 @@ StartBTN.addEventListener('click', function () {
   // console.log(array);
   // console.log(userNeeds.value);
   // console.log(ArraySize);
-
+  updatedSpan();
 
   if (!x) {
     console.log(`Enter a element first`);
@@ -149,8 +151,8 @@ StartBTN.addEventListener('click', function () {
       //1. call the sortArr function
       sortArr(array);
 
-      //storing new array to span || updating span values
-      updatedSpan();
+      // //storing new array to span || updating span values
+      // updatedSpan();
 
       // 2.Binary Search  
       BS(array, x);
