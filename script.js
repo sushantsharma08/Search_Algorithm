@@ -116,7 +116,7 @@ DisplayBTN.addEventListener('click', function () {
   for (let i = 0; i < ArraySize; i++) {
     newSpan = document.createElement('span');
     newSpan.id = `span-${i}`;
-    newSpan.className = `arraySpan`;
+    newSpan.classList.add('arraySpan','px-1');
     arrayOfSpans.push(newSpan);
   }
   ArrayContainer.replaceChildren(...arrayOfSpans);
