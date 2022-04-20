@@ -45,7 +45,6 @@ let LS = function (z, arr) {
       resultSpan.textContent = `Searching...`;
       for (let i = 0; i < arr.length; i++) {
         setTimeout(function () {
-    
           if (arr[i] == z) {
             console.log(`element found at ${i + 1}`);
             resultSpan.textContent = `Element found at ${i} position of array`;
@@ -151,9 +150,8 @@ StartBTN.addEventListener('click', function () {
       //1. call the sortArr function
       sortArr(array);
 
-      // //storing new array to span || updating span values
-      // updatedSpan();
-
+      updatedSpan();
+      
       // 2.Binary Search  
       BS(array, x);
     }
