@@ -150,6 +150,7 @@ StartBTN.addEventListener('click', function () {
       //1. call the sortArr function
       sortArr(array);
 
+      //  after updating spans are again shown in updated way
       updatedSpan();
       
       // 2.Binary Search  
