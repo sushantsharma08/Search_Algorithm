@@ -4,7 +4,7 @@
 }
 body{
     /* background: linear-gradient(20deg, rgb(94, 94, 236), rgb(240, 138, 155), rgb(192, 105, 192)); */
-    background: linear-gradient(#cc2b5ea8 , #753a88a8);
+    background: linear-gradient(270deg, #cc2b5eee , #743a88ee);
     height: 120vh;
     /* background: non; */
 }
@@ -81,7 +81,7 @@ span.input{
     height: 48%;
 }
 input{
-    background-color: rgba(90, 90, 90, 0.541);
+    background-color: rgba(25, 25, 25, 0.336);
     text-align: center;
 }
 input:focus{
