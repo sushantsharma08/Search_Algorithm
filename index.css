@@ -3,8 +3,8 @@
         padding: 0;
 }
 body{
-    /* background: linear-gradient(20deg, rgb(94, 94, 236), rgb(240, 138, 155), rgb(192, 105, 192)); */
-    background: linear-gradient(270deg, #cc2b5eee , #743a88ee);
+    background: linear-gradient(20deg, rgb(94, 94, 236), rgb(240, 138, 155), rgb(192, 105, 192));
+    /* background: linear-gradient(270deg, #cc2b5eee , #743a88ee); */
     height: 120vh;
     /* background: non; */
 }
