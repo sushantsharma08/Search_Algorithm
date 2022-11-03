@@ -4,6 +4,7 @@
 }
 #theme{
     cursor: pointer;
+    user-select: none;
 }
 body{
     /* background: linear-gradient(20deg, rgb(94, 94, 236), rgb(240, 138, 155), rgb(192, 105, 192)); */
