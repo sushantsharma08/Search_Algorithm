@@ -7,7 +7,8 @@ const ArrayContainer = document.getElementById('mainTxt');
 const userArray = document.getElementById('array');
 const userNeeds = document.getElementById('searchFor');
 const resultSpan = document.getElementById('resultTxt');
-
+const theme = document.getElementById('theme');
+const body =document.getElementById('bodyid')
 
 let ArraySize = 0;
 let algorithmName = '';
@@ -102,6 +103,18 @@ let BS = function (arr, z) {
 
   return notFound();
 }
+
+// theme change btn
+
+theme.addEventListener('click',()=>{
+  if (theme.innerText==='DARK') {
+    theme.innerText='LIGHT'
+    body.style.background ='linear-gradient(20deg, rgb(94, 94, 236), rgb(240, 138, 155), rgb(192, 105, 192))'
+  } else {
+    theme.innerText='DARK'
+    body.style.background ='linear-gradient(45deg, rgba(54, 36, 36, 0.836),rgba(43, 32, 56, 0.76), rgba(17, 17, 17, 0.664),rgba(37, 33, 75, 0.514),rgba(32, 3, 17, 0.39))'
+  }
+})
 
 // 3. displaying the array 
 DisplayBTN.addEventListener('click', function () {
