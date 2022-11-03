@@ -4,14 +4,13 @@
 }
 body{
     background: linear-gradient(20deg, rgb(94, 94, 236), rgb(240, 138, 155), rgb(192, 105, 192));
-    /* background: linear-gradient(270deg, #cc2b5eee , #743a88ee); */
-    height: 120vh;
-    /* background: non; */
+    min-height: 100vh;
 }
 #nav{
     display: flex;
     /* justify-content: space-between; */
-    height: 13%;
+    
+    height: 120px;
     align-items: center;
     border: 3px solid rgba(0, 0, 0, 0.54);
     background-color: rgba(2, 2, 2, .2);
@@ -24,12 +23,12 @@ span.input{
     width: max-content;
     border: 2px solid rgba(0, 0, 0, 0.61);
     border-radius: 2px;
-    /* background: linear-gradient(60deg, rgba(48, 45, 45, 0.507), rgba(50, 50, 187, 0.562)); */
     background-color: rgba(12, 39, 66, 0.349);
     color: rgb(44, 31, 31);
 }
 #main{
-    height: 13%;
+    
+    height: 120px;
     border: 3px solid rgba(44, 44, 61, 0.685);
 }
 #Txt{
@@ -40,14 +39,13 @@ span.input{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    /* border: 7px solid rgba(44, 44, 61, 0.685);
-    border-radius: 12%; */
 }
 #mainTxt{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 13%;
+    
+    height: 120px;
     border: 3px solid rgba(44, 44, 61, 0.54);
 }
 .arraySpan{
@@ -62,7 +60,8 @@ span.input{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 13%;
+    
+    height: 120px;
     border:3px solid rgba(0, 0, 0, 0.54);
     background-color: rgba(2, 2, 2, .2);
 }

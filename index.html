@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,30 +9,25 @@
     <link rel="stylesheet" href="./index.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body>
-
     <div id="main">
-
         <div id="Txt">Array Info</div>
-
         <div id="arraySec">
-
             <span class="tag">
                 <label>Enter your array : </label>
-            <input id="array" type="text" placeholder="Ex: 22,3,4,6,31,9" class="focus:outline-none">
+                <input id="array" type="text" placeholder="Ex: 22,3,4,6,31,9" class="focus:outline-none">
             </span>
 
             <span class="tag">
-                <button class="button active:bg-[#0c274280] px-2  hover:bg-[#4f46e5]/[0.3]" id="displayArray">Display array</button>
+                <button class="button active:bg-[#0c274280] px-2  hover:bg-[#4f46e5]/[0.3]" id="displayArray">Display
+                    array</button>
             </span>
 
         </div>
-
     </div>
 
-
     <div id="nav" class="lg:justify-around sm:justify-between">
-
         <span id="AlgoSpan" class="tag">
             <label>Algorithm:</label>
             <select id="Algo">
@@ -42,40 +38,40 @@
         </span>
 
         <span class="tag input">
-           <label>Enter the number you want :</label> <input id="searchFor" type="number" class="w-[120px] focus:outline-none" >
+            <label>Enter the number you want :</label> <input id="searchFor" type="number"
+                class="w-[120px] focus:outline-none">
         </span>
 
         <span id="start" class="tag">
-            <button class="button active:bg-[#0c274280] px-2 hover:bg-[#4f46e5]/[0.3]" id="startBtn">Start Search:</button>
+            <button class="button active:bg-[#0c274280] px-2 hover:bg-[#4f46e5]/[0.3]" id="startBtn">Start
+                Search:</button>
         </span>
-
     </div>
 
-
-    <div id="mainTxt">
-        
-    </div>
-
+    <div id="mainTxt"></div>
 
     <div id="result">
         <span id="resultTxt"></span>
     </div>
 
-
     <section class="p-4 flex justify-center sec">
         <div id="info">
             <div class="text-2xl font-bold text-center animate-pulse mb-3">How to use</div>
             <div class="border-2 border-black/[0.32] rounded p-5">
-              <div class="p-1"> <span class="font-bold">Step_1  </span>Enter the array elements seperated with "," commas. <br></div>
-              <div class="p-1"> <span class="font-bold">Step_2  </span>Click on Display array button to show the array you entered. <br></div>
-              <div class="p-1"> <span class="font-bold">Step_3  </span>Choose the type of search algorithm you need to run <br></div>
-              <div class="p-1"> <span class="font-bold">Step_4  </span>Enter the element you need to search. <br></div>
-              <div class="p-1"> <span class="font-bold">Step_5  </span>Click on start search button to run the algorithm.</div>
+                <div class="p-1"> <span class="font-bold">Step_1 </span>Enter the array elements seperated with ","
+                    commas. <br></div>
+                <div class="p-1"> <span class="font-bold">Step_2 </span>Click on Display array button to show the array
+                    you entered. <br></div>
+                <div class="p-1"> <span class="font-bold">Step_3 </span>Choose the type of search algorithm you need to
+                    run <br></div>
+                <div class="p-1"> <span class="font-bold">Step_4 </span>Enter the element you need to search. <br></div>
+                <div class="p-1"> <span class="font-bold">Step_5 </span>Click on start search button to run the
+                    algorithm.</div>
             </div>
         </div>
     </section>
 
-    
     <script src="script.js"></script>
 </body>
+
 </html>
