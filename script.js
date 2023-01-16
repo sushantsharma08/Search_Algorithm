@@ -8,7 +8,7 @@ const userArray = document.getElementById('array');
 const userNeeds = document.getElementById('searchFor');
 const resultSpan = document.getElementById('resultTxt');
 const theme = document.getElementById('theme');
-const body =document.getElementById('bodyid')
+const body = document.getElementById('bodyid')
 
 let ArraySize = 0;
 let algorithmName = '';
@@ -41,8 +41,8 @@ let sortArr = function (arr) {
 
 // 1.Linear Search
 let LS = function (z, arr) {
-  for(let i=0; i<arr.length; i++){
-    if(arr[i]==z){
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] == z) {
       resultSpan.textContent = `Searching...`;
       for (let i = 0; i < arr.length; i++) {
         setTimeout(function () {
@@ -57,9 +57,9 @@ let LS = function (z, arr) {
           }
         }, 500 * i);
       }
-    }else{
+    } else {
       setTimeout(function () {
-      document.getElementById(`span-${i}`).style.backgroundColor = 'red';
+        document.getElementById(`span-${i}`).style.backgroundColor = 'red';
       }, 500 * i);
       notFound();
     }
@@ -73,32 +73,32 @@ let BS = function (arr, z) {
   let left = 0;
   let right = arr.length - 1;
   let bscounter = 0;
-  while (left <= right && bscounter<arr.length) {
+  while (left <= right && bscounter < arr.length) {
 
-    setTimeout(function(){
-      
-    let mid = Math.floor((right + left) / 2);
+    setTimeout(function () {
 
-    if (z == arr[mid]) {
-      console.log(`found at ${mid} position of array`);
-      resultSpan.textContent = `Element found at ${mid} position of array`;
-      document.getElementById(`span-${mid}`).style.backgroundColor = 'green';
-      return 0;
-    } else if (z < arr[mid]) {
-      right = mid - 1;
+      let mid = Math.floor((right + left) / 2);
 
-      if (z != arr[mid]) {
-        document.getElementById(`span-${mid}`).style.backgroundColor = 'red';
+      if (z == arr[mid]) {
+        console.log(`found at ${mid} position of array`);
+        resultSpan.textContent = `Element found at ${mid} position of array`;
+        document.getElementById(`span-${mid}`).style.backgroundColor = 'green';
+        return 0;
+      } else if (z < arr[mid]) {
+        right = mid - 1;
+
+        if (z != arr[mid]) {
+          document.getElementById(`span-${mid}`).style.backgroundColor = 'red';
+        }
+      } else if (z > arr[mid]) {
+        left = mid + 1;
+
+        if (z != arr[mid]) {
+          document.getElementById(`span-${mid}`).style.backgroundColor = 'red';
+        }
       }
-    } else if (z > arr[mid]) {
-      left = mid + 1;
-
-      if (z != arr[mid]) {
-        document.getElementById(`span-${mid}`).style.backgroundColor = 'red';
-      }
-    }
-  }, 1000*bscounter);
-  bscounter++;
+    }, 1000 * bscounter);
+    bscounter++;
   }
 
   return notFound();
@@ -106,13 +106,13 @@ let BS = function (arr, z) {
 
 // theme change btn
 
-theme.addEventListener('click',()=>{
-  if (theme.innerText==='DARK') {
-    theme.innerText='LIGHT'
-    body.style.background ='linear-gradient(20deg, rgb(94, 94, 236), rgb(240, 138, 155), rgb(192, 105, 192))'
+theme.addEventListener('click', () => {
+  if (theme.innerText === 'DARK') {
+    theme.innerText = 'LIGHT'
+    body.style.background = 'linear-gradient(20deg, rgb(94, 94, 236), rgb(240, 138, 155), rgb(192, 105, 192))'
   } else {
-    theme.innerText='DARK'
-    body.style.background ='linear-gradient(45deg, rgba(54, 36, 36, 0.836),rgba(43, 32, 56, 0.76), rgba(17, 17, 17, 0.664),rgba(37, 33, 75, 0.514),rgba(32, 3, 17, 0.39))'
+    theme.innerText = 'DARK'
+    body.style.background = 'linear-gradient(45deg, rgba(54, 36, 36, 0.836),rgba(43, 32, 56, 0.76), rgba(17, 17, 17, 0.664),rgba(37, 33, 75, 0.514),rgba(32, 3, 17, 0.39))'
   }
 })
 
@@ -129,7 +129,7 @@ DisplayBTN.addEventListener('click', function () {
   for (let i = 0; i < ArraySize; i++) {
     newSpan = document.createElement('span');
     newSpan.id = `span-${i}`;
-    newSpan.classList.add('arraySpan','px-1');
+    newSpan.classList.add('arraySpan', 'px-1');
     arrayOfSpans.push(newSpan);
   }
   ArrayContainer.replaceChildren(...arrayOfSpans);
@@ -165,7 +165,7 @@ StartBTN.addEventListener('click', function () {
 
       //  after updating spans are again shown in updated way
       updatedSpan();
-      
+
       // 2.Binary Search  
       BS(array, x);
     }
